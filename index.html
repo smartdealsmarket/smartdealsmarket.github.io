@@ -3,97 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Deals Market | Potomac Mills</title>
-    <!-- Tailwind CSS v4 CDN -->
-    <script src="https://jsdelivr.net"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>Smart Deals Market - Potomac Mills</title>
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://googleapis.com');
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-card: #121214;
+            --orange-primary: #ff5500;
+            --orange-hover: #e04b00;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --text-orange: #ff5500;
+            --accent-green: #10b981;
+            --border-subtle: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0b0b0c;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
         }
-        /* Custom scrollbar to keep layout clean */
-        ::-webkit-scrollbar {
-            width: 5px;
+
+        /* Navbar Layout */
+        .navbar {
+            width: 100%;
+            max-width: 500px; /* Styled for a clean mobile-first canvas matching the screenshot */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 1.25rem;
+            background-color: var(--bg-dark);
         }
-        ::-webkit-scrollbar-track {
-            background: #0b0b0c;
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #1f1f23;
-            border-radius: 99px;
+
+        .logo-icon {
+            background-color: var(--orange-primary);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Inline SVG matching the brand chevron icon */
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: white;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .logo-text h1 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .logo-text p {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .menu-btn svg {
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        /* Hero Main Section */
+        .hero-section {
+            width: 100%;
+            max-width: 500px;
+            padding: 2.5rem 1.25rem 1.5rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-heading {
+            font-size: 2.3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-heading span.highlight {
+            color: var(--text-orange);
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Action Button */
+        .cta-btn {
+            background-color: var(--orange-primary);
+            color: white;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 14px rgba(255, 85, 0, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--orange-hover);
+        }
+
+        .cta-btn:active {
+            transform: scale(0.98);
+        }
+
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* Preview State Banner */
+        .preview-banner {
+            width: 100%;
+            max-width: 500px;
+            background-color: #111622;
+            border-top: 1px solid var(--border-subtle);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .preview-text {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .wake-btn {
+            width: 100%;
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: var(--accent-green);
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .wake-btn:hover {
+            background-color: rgba(16, 185, 129, 0.15);
+            border-color: var(--accent-green);
+        }
+
+        /* Scroll Prompt Footer */
+        .scroll-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #475569;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 1rem;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .scroll-indicator svg {
+            width: 12px;
+            height: 12px;
+            stroke: currentColor;
+            stroke-width: 2;
         }
     </style>
 </head>
-<body class="text-white antialiased min-h-screen flex justify-center items-start">
+<body>
 
-    <!-- 1:1 Mobile Viewport Canvas Container Wrapper -->
-    <div class="w-full max-w-md bg-[#0b0b0c] min-h-screen flex flex-col justify-between relative shadow-2xl border-x border-gray-900/40">
+    <!-- Header Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 17l6-6-6-6M12 17l6-6-6-6" />
+                </svg>
+            </div>
+            <div class="logo-text">
+                <h1>Smart Deals</h1>
+                <p>Market</p>
+            </div>
+        </div>
+        <button class="menu-btn" aria-label="Open Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Main Typography & UI Content -->
+    <section class="hero-section">
+        <h2 class="hero-heading">
+            Big Brands.<br>
+            <span class="highlight">Unbeatable Prices.</span><br>
+            Right Around The Corner.
+        </h2>
         
-        <div>
-            <!-- Header/Navigation Bar -->
-            <nav class="flex justify-between items-center px-6 py-5 border-b border-gray-900/50 bg-[#0d0d0e]/90 backdrop-blur sticky top-0 z-50">
-                <div class="flex items-center gap-2">
-                    <!-- Distinct Custom Logo Chevron Asset Frame Layout Box -->
-                    <div class="bg-[#ff4f00] text-white w-8 h-8 rounded-lg flex items-center justify-center font-black text-lg shadow-sm shadow-[#ff4f00]/10">
-                        <i class="fa-solid fa-angle-up text-sm"></i>
-                    </div>
-                    
-                    <div class="flex flex-col leading-tight">
-                        <span class="text-xs font-black tracking-wider uppercase text-white">Smart Deals</span>
-                        <span class="text-[9px] font-bold text-gray-500 tracking-[0.2em] uppercase">Market</span>
-                    </div>
-                </div>
-                <!-- Navbar Burger Icon Interaction Toggle Element Link Trigger -->
-                <button class="text-gray-400 hover:text-white p-1 transition-colors">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
-            </nav>
+        <p class="hero-description">
+            Potomac Mills' premier liquidation outlet for home essentials, furniture, luggage, and daily surprises. New truckloads arrive weekly — when it's gone, it's gone.
+        </p>
 
-            <!-- Hero Segment Section Layer Area Panel Viewport Block -->
-            <main class="px-6 pt-12 pb-6">
-                <!-- Headliner Copy Bold Graphic Typography Structure -->
-                <h1 class="text-[34px] font-extrabold tracking-tight leading-[1.1] mb-6 text-white pr-2">
-                    Big Brands.<br>
-                    <span class="text-[#ff4f00]">Unbeatable Prices.</span><br>
-                    Right Around The Corner.
-                </h1>
+        <!-- CTA Orange Button with Map Pin Icon -->
+        <a href="#" class="cta-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Find Us Inside the Mall
+        </a>
 
-                <!-- Secondary Descriptive Corporate Info Core Content Copy Frame -->
-                <p class="text-gray-400 text-sm font-medium leading-relaxed mb-10 pr-1">
-                    Potomac Mills' premier liquidation outlet for home essentials, furniture, luggage, and daily surprises. New truckloads arrive weekly — when it's gone, it's gone.
-                </p>
-
-                <!-- Core Dynamic CTA Nav Route Destination Direct Button Link Map Object -->
-                <a href="https://google.com" target="_blank" class="w-full bg-[#ff4f00] hover:bg-[#e04500] text-white font-bold py-4 px-6 rounded-full flex items-center justify-center gap-2 transition-all duration-200 shadow-lg shadow-[#ff4f00]/10 text-sm mb-12 transform active:scale-[0.99]">
-                    <i class="fa-solid fa-crosshairs text-sm"></i>
-                    Find Us Inside the Mall
-                </a>
-
-                <!-- Notice Status Alert Board Layout Information Setup Panel Wrapper Frame Container Box Structure -->
-                <div class="w-full bg-[#111215] border border-gray-900/60 rounded-2xl p-5 text-left mb-6">
-                    <span class="text-[10px] font-extrabold tracking-widest uppercase text-gray-500 block mb-1">Frontend Preview Only.</span>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-5">
-                        Please wake servers to enable backend functionality.
-                    </p>
-                    
-                    <!-- Internal API Sync Engine Action Request Wake Operation Target Element Structural Context Toggle Object Interface -->
-                    <button class="w-full bg-[#16171c] hover:bg-[#1d1f26] border border-emerald-500/20 text-emerald-400 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all text-xs shadow-inner cursor-pointer">
-                        <i class="fa-solid fa-server text-[10px] opacity-80"></i>
-                        Wake up servers
-                    </button>
-                </div>
-            </main>
+        <!-- Live Server Preview Environment Widget -->
+        <div class="preview-banner">
+            <p class="preview-text">Frontend Preview Only. Please wake servers to enable backend functionality.</p>
+            <button class="wake-btn" onclick="alert('Connecting to virtual backend environments...')">Wake up servers</button>
         </div>
+    </section>
 
-        <!-- Section Transition Indicator Hint Layout Box Stack Footer Alignment Structural Element Layout Map Config Container Context -->
-        <div class="pb-10 pt-4 flex flex-col items-center gap-1.5 text-gray-600 tracking-[0.2em] uppercase text-[9px] font-black w-full bg-gradient-to-t from-[#0b0b0c] via-[#0b0b0c] to-transparent pointer-events-none">
-            <i class="fa-solid fa-arrow-down text-xs animate-bounce text-gray-700"></i>
-            <span>Scroll for the good stuff</span>
-        </div>
-
+    <!-- Visual Anchor Footer -->
+    <div class="scroll-indicator">
+        <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Scroll for the good stuff
     </div>
 
 </body>
