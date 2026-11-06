@@ -3,82 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Deals Market</title>
-    <!-- Tailwind CSS v4 CDN -->
+    <title>Smart Deals Market | Potomac Mills</title>
     <script src="https://jsdelivr.net"></script>
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
-    <style>
-        body {
-            background-color: #0b0f17;
-        }
-    </style>
 </head>
-<body class="text-gray-100 font-sans antialiased">
-
-    <!-- Header Navigation -->
-    <nav class="bg-[#111622] border-b border-gray-800 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <!-- Brand Logo Layout -->
-            <div class="flex items-center gap-3">
-                <div class="bg-[#ff5a1f] p-2.5 rounded-xl flex items-center justify-center shadow-lg shadow-[#ff5a1f]/20">
-                    <i class="fa-solid fa-fire-lightning text-white text-xl"></i>
+<body class="bg-[#0b0b0c] text-white font-sans antialiased min-h-screen flex justify-center items-start">
+    <div class="w-full max-w-md bg-[#0b0b0c] min-h-screen flex flex-col justify-between relative shadow-2xl border-x border-gray-900/50">
+        <div>
+            <nav class="flex justify-between items-center px-6 py-5 border-b border-gray-900/40 bg-[#0d0d0e] sticky top-0 z-50">
+                <div class="flex items-center gap-2">
+                    <div class="bg-[#ff4f00] text-black w-8 h-8 rounded-lg flex items-center justify-center font-black text-lg">
+                        <i class="fa-solid fa-angle-up text-sm text-white"></i>
+                    </div>
+                    <div class="flex flex-col leading-tight">
+                        <span class="text-sm font-extrabold tracking-wider uppercase text-white">Smart Deals</span>
+                        <span class="text-[10px] font-bold text-gray-500 tracking-[0.18em] uppercase">Market</span>
+                    </div>
                 </div>
-                <div class="flex flex-col">
-                    <span class="text-lg font-black tracking-wider text-white uppercase">Smart Deals</span>
-                    <span class="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">Market</span>
-                </div>
-            </div>
-            
-            <!-- Mobile Menu Burger Button -->
-            <button class="p-2.5 text-gray-400 hover:text-white transition">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
+                <button class="text-gray-400 hover:text-white p-1">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </nav>
+            <main class="px-6 pt-12 pb-6">
+                <h1 class="text-4xl font-extrabold tracking-tight leading-[1.1] mb-6 text-white pr-2">
+                    Big Brands.<br><span class="text-[#ff4f00]">Unbeatable Prices.</span><br>Right Around The Corner.
+                </h1>
+                <p class="text-gray-400 text-sm font-medium leading-relaxed mb-10 pr-1">
+                    Potomac Mills' premier liquidation outlet for home essentials, furniture, luggage, and daily surprises. New truckloads arrive weekly.
+                </p>
+                <a href="https://google.com" target="_blank" class="w-full bg-[#ff4f00] hover:bg-[#e04500] text-white font-bold py-4 px-6 rounded-full flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#ff4f00]/10 text-sm mb-12">
+                    <i class="fa-solid fa-location-dot text-sm"></i> Find Us Inside the Mall
+                </a>
+            </main>
         </div>
-    </nav>
-
-    <!-- Main Content Container -->
-    <main class="max-w-xl mx-auto px-6 py-12 flex flex-col items-center text-center">
-        
-        <!-- Hero Copy Section -->
-        <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white mb-6 text-left w-full leading-tight">
-            Big Brands.<br>
-            <span class="text-[#ff5a1f]">Unbeatable Prices.</span><br>
-            Right Around The Corner.
-        </h1>
-
-        <!-- Brand Description -->
-        <p class="text-gray-400 text-base md:text-lg text-left w-full leading-relaxed mb-10">
-            Potomac Mills' premier liquidation outlet for home essentials, furniture, luggage, and daily surprises. New truckloads arrive weekly &mdash; when it's gone, it's gone.
-        </p>
-
-        <!-- Main Action CTA Button (Find Us) -->
-        <a href="https://maps.google.com" target="_blank" class="w-full bg-[#ff5a1f] hover:bg-[#e04e17] text-white font-extrabold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 transform active:scale-[0.98] shadow-lg shadow-[#ff5a1f]/20 text-md mb-12">
-            <i class="fa-solid fa-location-dot text-lg"></i>
-            Find Us Inside the Mall
-        </a>
-
-        <!-- Frontend Demo Backend Framework Notice Banner -->
-        <div class="w-full bg-[#111622] border border-gray-800 rounded-2xl p-6 text-left shadow-xl">
-            <span class="text-xs font-black tracking-wider uppercase text-gray-400 block mb-2">Frontend Preview Only</span>
-            <p class="text-gray-300 text-sm leading-relaxed mb-5">
-                Please wake servers to enable backend functionality.
-            </p>
-            
-            <!-- Server Activation Request Button -->
-            <button class="w-full bg-[#1b2336] hover:bg-[#232d45] border border-emerald-500/30 text-emerald-400 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition text-sm">
-                <i class="fa-solid fa-server"></i>
-                Wake up servers
-            </button>
-        </div>
-
-        <!-- Section Navigation Clue Text Hint -->
-        <div class="mt-12 flex flex-col items-center gap-2 text-gray-500 tracking-[0.25em] uppercase text-xs font-bold animate-pulse">
-            <i class="fa-solid fa-arrow-down-long text-sm"></i>
-            <span>Scroll for the good stuff</span>
-        </div>
-
-    </main>
-
+    </div>
 </body>
 </html>
