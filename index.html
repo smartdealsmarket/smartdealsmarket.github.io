@@ -4,65 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0B0D10" />
-  <meta
-    name="description"
-    content="Smart Deals Market — Potomac Mills Mall's premier liquidation outlet. Big brands, unbeatable prices, new truckloads weekly. Woodbridge, VA."
-  />
+  <meta name="description" content="Smart Deals Market — Potomac Mills Mall's premier liquidation outlet. Big brands, unbeatable prices, new truckloads weekly. Woodbridge, VA." />
   <title>Smart Deals Market — Big Brands. Unbeatable Prices. | Potomac Mills Mall</title>
-
-  <!-- Favicon: orange square with the "A" mark -->
-  <link
-    rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='2' y='2' width='44' height='44' rx='10' fill='%23FF5500'/%3E%3Cpath d='M13 31.5L24 10L35 31.5' stroke='%230B0D10' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M28 36L33.5 27.5L39 36' stroke='%230B0D10' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"
-  />
-
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='2' y='2' width='44' height='44' rx='10' fill='%23FF5500'/%3E%3Cpath d='M13 31.5L24 10L35 31.5' stroke='%230B0D10' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M28 36L33.5 27.5L39 36' stroke='%230B0D10' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- React 19 + Babel (in-browser JSX) -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script crossorigin src="https://unpkg.com/react@19/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@19/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- Framer Motion UMD (for the animations) -->
-  <script crossorigin src="https://unpkg.com/framer-motion@11/dist/framer-motion.js"></script>
-
+  
   <style>
-    /* ---------- Design tokens (from main.fccd6591.css :root) ---------- */
     :root {
-      --background: #0b0d10;
-      --foreground: #ffffff;
-      --card: #181c24;
-      --card-2: #12151b;
-      --popover: #101318;
-      --primary: #ff5500;
-      --primary-hover: #e04800;
-      --cyan: #00e5ff;
-      --green: #10b981;
-      --muted-fg: #94a3b8;
-      --slate-300: #cbd5e1;
-      --slate-400: #94a3b8;
-      --slate-500: #64748b;
-      --border: rgba(255, 255, 255, 0.1);
-      --border-soft: rgba(255, 255, 255, 0.05);
-      --radius: 0.75rem;
+      --background: #0b0d10; --foreground: #ffffff; --card: #181c24; --card-2: #12151b;
+      --primary: #ff5500; --primary-hover: #e04800; --cyan: #00e5ff; --green: #10b981;
+      --slate-300: #cbd5e1; --slate-400: #94a3b8; --slate-500: #64748b;
+      --border: rgba(255, 255, 255, 0.1); --border-soft: rgba(255, 255, 255, 0.05);
     }
-
     *, *::before, *::after { box-sizing: border-box; border: 0 solid var(--border); }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      background: var(--background);
-      color: var(--foreground);
-      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--background); color: var(--foreground); font-family: "Plus Jakarta Sans", system-ui, sans-serif; overflow-x: hidden; line-height: 1.5; }
     a { color: inherit; text-decoration: inherit; }
     button { font: inherit; cursor: pointer; background: none; color: inherit; }
     img, svg { display: block; max-width: 100%; height: auto; }
@@ -71,1227 +32,407 @@
     ::-webkit-scrollbar-track { background: #0b0d10; }
     ::-webkit-scrollbar-thumb { background: #262c36; border-radius: 8px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
-
     .font-display { font-family: "Outfit", sans-serif; }
     .font-mono-x { font-family: "JetBrains Mono", monospace; }
-
-    /* ---------- Reusable layout ---------- */
-    .container {
-      max-width: 80rem;
-      margin: 0 auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
+    .container { max-width: 80rem; margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
     @media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
-    @media (min-width: 1024px) { .container { padding-left: 2rem; padding-right: 2rem; } }
-
     .section { padding: 5rem 0; position: relative; }
     @media (min-width: 768px) { .section { padding: 7rem 0; } }
-
-    /* ---------- Buttons ---------- */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.625rem;
-      border-radius: 9999px;
-      padding: 1rem 2rem;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s, border-color 0.3s;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.625rem; border-radius: 9999px; padding: 1rem 2rem; font-weight: 700; font-size: 1rem; transition: all 0.3s; }
     .btn-primary { background: var(--primary); color: #fff; }
-    .btn-primary:hover {
-      background: var(--primary-hover);
-      box-shadow: 0 0 40px rgba(255, 85, 0, 0.35);
-    }
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-      backdrop-filter: blur(8px);
-    }
+    .btn-primary:hover { background: var(--primary-hover); box-shadow: 0 0 40px rgba(255, 85, 0, 0.35); }
+    .btn-secondary { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; backdrop-filter: blur(8px); }
     .btn-secondary:hover { border-color: rgba(0, 229, 255, 0.6); background: rgba(255, 255, 255, 0.1); }
     .btn-sm { padding: 0.625rem 1.25rem; font-size: 0.875rem; }
-
-    /* ---------- Badge / pill ---------- */
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.625rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 85, 0, 0.3);
-      background: rgba(255, 85, 0, 0.1);
-      padding: 0.5rem 1rem;
-      margin-bottom: 2rem;
-    }
-    .pill span:last-child {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      color: var(--primary);
-      font-weight: 600;
-    }
-    .dot {
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 9999px;
-      background: var(--primary);
-      animation: pulse-dot 1.6s ease-in-out infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.35; transform: scale(0.75); }
-    }
-
-    /* ---------- Eyebrow / headings ---------- */
-    .eyebrow {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.3em;
-      font-weight: 600;
-      color: var(--primary);
-    }
+    .pill { display: inline-flex; align-items: center; gap: 0.625rem; border-radius: 9999px; border: 1px solid rgba(255, 85, 0, 0.3); background: rgba(255, 85, 0, 0.1); padding: 0.5rem 1rem; margin-bottom: 2rem; }
+    .pill span:last-child { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.25em; color: var(--primary); font-weight: 600; }
+    .dot { width: 0.5rem; height: 0.5rem; border-radius: 9999px; background: var(--primary); animation: pulse-dot 1.6s infinite; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.75); } }
+    .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.3em; font-weight: 600; color: var(--primary); }
     .eyebrow.cyan { color: var(--cyan); }
-    .h2 {
-      margin-top: 1rem;
-      font-family: "Outfit", sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      font-size: 1.875rem;
-      line-height: 1.1;
-      color: #fff;
-    }
+    .h2 { margin-top: 1rem; font-family: "Outfit", sans-serif; font-weight: 800; letter-spacing: -0.025em; font-size: 1.875rem; line-height: 1.1; color: #fff; }
     @media (min-width: 640px) { .h2 { font-size: 2.25rem; } }
     @media (min-width: 1024px) { .h2 { font-size: 3rem; } }
     .lead { margin-top: 1rem; max-width: 36rem; color: var(--slate-400); }
-
-    /* ---------- Header ---------- */
-    .header {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 50;
-      background: rgba(11, 13, 16, 0.8);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
+    .header { position: fixed; inset: 0 0 auto 0; z-index: 50; background: rgba(11, 13, 16, 0.8); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
     .brand { display: flex; align-items: center; gap: 0.75rem; }
-    .brand-text .title {
-      font-family: "Outfit", sans-serif;
-      font-weight: 900;
-      font-size: 1.125rem;
-      letter-spacing: -0.025em;
-      color: #fff;
-      line-height: 1;
-    }
-    .brand-text .sub {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      color: var(--primary);
-      font-weight: 600;
-      line-height: 1;
-      margin-top: 4px;
-    }
+    .brand-text .title { font-family: "Outfit", sans-serif; font-weight: 900; font-size: 1.125rem; letter-spacing: -0.025em; color: #fff; line-height: 1; }
+    .brand-text .sub { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.35em; color: var(--primary); font-weight: 600; line-height: 1; margin-top: 4px; }
     .nav-desktop { display: none; align-items: center; gap: 2rem; }
-    .nav-desktop a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--slate-300);
-      transition: color 0.2s;
-    }
+    .nav-desktop a { font-size: 0.875rem; font-weight: 500; color: var(--slate-300); transition: color 0.2s; }
     .nav-desktop a:hover { color: #fff; }
     .header-cta-desktop { display: none; align-items: center; gap: 1rem; }
-    .header-pill {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-radius: 9999px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 0.375rem 0.875rem;
-    }
-    .header-pill span:last-child {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      color: var(--slate-300);
-      font-weight: 600;
-    }
-    .mobile-toggle {
-      display: block;
-      padding: 0.5rem;
-      color: #fff;
-    }
-    .mobile-menu {
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-      background: rgba(11, 13, 16, 0.95);
-      backdrop-filter: blur(24px);
-    }
-    .mobile-menu-inner {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
+    .header-pill { display: flex; align-items: center; gap: 0.5rem; border-radius: 9999px; border: 1px solid var(--border); background: rgba(255, 255, 255, 0.05); padding: 0.375rem 0.875rem; }
+    .header-pill span:last-child { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--slate-300); font-weight: 600; }
+    .mobile-toggle { display: block; padding: 0.5rem; color: #fff; }
+    .mobile-menu { overflow: hidden; border-top: 1px solid var(--border); background: rgba(11, 13, 16, 0.95); backdrop-filter: blur(24px); }
+    .mobile-menu-inner { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
     .mobile-menu a { font-size: 1.125rem; font-weight: 600; color: #fff; }
     .mobile-menu .btn { width: 100%; }
-
-    @media (min-width: 1024px) {
-      .nav-desktop { display: flex; }
-      .header-cta-desktop { display: flex; }
-      .mobile-toggle { display: none; }
-    }
-
-    /* ---------- Hero ---------- */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background: var(--background);
-      padding-top: 9rem;
-      padding-bottom: 5rem;
-    }
-    @media (min-width: 768px) {
-      .hero { padding-top: 11rem; padding-bottom: 7rem; }
-    }
-    .hero-grain {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.05;
-      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
-    }
-    .hero-bg-text {
-      position: absolute;
-      top: -1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
-      font-family: "Outfit", sans-serif;
-      font-weight: 900;
-      font-size: 22vw;
-      line-height: 1;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
-      user-select: none;
-      pointer-events: none;
-    }
-    .hero-glow {
-      position: absolute;
-      top: 33%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 820px;
-      height: 520px;
-      border-radius: 9999px;
-      background: rgba(255, 85, 0, 0.1);
-      filter: blur(140px);
-      pointer-events: none;
-    }
+    @media (min-width: 1024px) { .nav-desktop { display: flex; } .header-cta-desktop { display: flex; } .mobile-toggle { display: none; } }
+    .hero { position: relative; overflow: hidden; background: var(--background); padding-top: 9rem; padding-bottom: 5rem; }
+    @media (min-width: 768px) { .hero { padding-top: 11rem; padding-bottom: 7rem; } }
+    .hero-grain { position: absolute; inset: 0; pointer-events: none; opacity: 0.05; background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E"); }
+    .hero-bg-text { position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); white-space: nowrap; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 22vw; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14); user-select: none; pointer-events: none; }
+    .hero-glow { position: absolute; top: 33%; left: 50%; transform: translateX(-50%); width: 820px; height: 520px; border-radius: 9999px; background: rgba(255, 85, 0, 0.1); filter: blur(140px); pointer-events: none; }
     .hero-content { position: relative; }
-    .hero h1 {
-      font-family: "Outfit", sans-serif;
-      font-weight: 900;
-      letter-spacing: -0.025em;
-      line-height: 1.02;
-      font-size: 2.25rem;
-      color: #fff;
-      margin: 0;
-    }
+    .hero h1 { font-family: "Outfit", sans-serif; font-weight: 900; letter-spacing: -0.025em; line-height: 1.02; font-size: 2.25rem; color: #fff; margin: 0; }
     @media (min-width: 640px) { .hero h1 { font-size: 3.75rem; } }
     @media (min-width: 1024px) { .hero h1 { font-size: 5.25rem; } }
     .hero h1 .accent { color: var(--primary); }
-    .hero p.subhead {
-      margin-top: 1.75rem;
-      max-width: 42rem;
-      font-size: 1rem;
-      color: var(--slate-300);
-      line-height: 1.625;
-    }
+    .hero p.subhead { margin-top: 1.75rem; max-width: 42rem; font-size: 1rem; color: var(--slate-300); line-height: 1.625; }
     @media (min-width: 640px) { .hero p.subhead { font-size: 1.125rem; } }
-    .hero-actions {
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    @media (min-width: 640px) {
-      .hero-actions { flex-direction: row; align-items: center; }
-    }
-    .hero-scroll {
-      margin-top: 4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: var(--slate-500);
-    }
-    .hero-scroll span {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.25em;
-    }
+    .hero-actions { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    @media (min-width: 640px) { .hero-actions { flex-direction: row; align-items: center; } }
+    .hero-scroll { margin-top: 4rem; display: flex; align-items: center; gap: 0.75rem; color: var(--slate-500); }
+    .hero-scroll span { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.25em; }
     .bounce { animation: bounce 1s infinite; }
-    @keyframes bounce {
-      0%, 100% { animation-timing-function: cubic-bezier(.8,0,1,1); transform: translateY(-25%); }
-      50% { animation-timing-function: cubic-bezier(0,0,.2,1); transform: none; }
-    }
-
-    /* text reveal spans */
-    .reveal-line {
-      display: block;
-      overflow: hidden;
-      padding-bottom: 0.08em;
-      margin-bottom: -0.08em;
-    }
-    .reveal-line > span {
-      display: block;
-      will-change: transform;
-      transform: translateY(115%);
-      animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
+    @keyframes bounce { 0%, 100% { transform: translateY(-25%); } 50% { transform: none; } }
+    .reveal-line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+    .reveal-line > span { display: block; transform: translateY(115%); animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
     .reveal-line:nth-child(1) > span { animation-delay: 0.05s; }
     .reveal-line:nth-child(2) > span { animation-delay: 0.18s; }
     .reveal-line:nth-child(3) > span { animation-delay: 0.31s; }
     @keyframes reveal-up { to { transform: translateY(0); } }
-
-    /* ---------- Marquee ---------- */
-    .marquee {
-      position: relative;
-      border-top: 1px solid rgba(255, 85, 0, 0.4);
-      border-bottom: 1px solid rgba(255, 85, 0, 0.4);
-      background: var(--primary);
-      padding: 1rem 0;
-      overflow: hidden;
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    }
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee-x 38s linear infinite;
-    }
+    .marquee { position: relative; border-top: 1px solid rgba(255, 85, 0, 0.4); border-bottom: 1px solid rgba(255, 85, 0, 0.4); background: var(--primary); padding: 1rem 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .marquee-track { display: flex; width: max-content; animation: marquee-x 38s linear infinite; }
     .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
     .marquee-item { display: flex; align-items: center; }
-    .marquee-item span:first-child {
-      margin: 0 1.5rem;
-      font-family: "Outfit", sans-serif;
-      font-weight: 800;
-      font-size: 0.875rem;
-      letter-spacing: 0.15em;
-      color: var(--background);
-    }
+    .marquee-item span:first-child { margin: 0 1.5rem; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 0.875rem; letter-spacing: 0.15em; color: var(--background); }
     @media (min-width: 640px) { .marquee-item span:first-child { font-size: 1rem; } }
-    @keyframes marquee-x {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ---------- Cards ---------- */
+    @keyframes marquee-x { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .grid { display: grid; gap: 1.5rem; }
     .grid-3 { grid-template-columns: 1fr; }
     @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (min-width: 1024px) { .grid-3 { gap: 2rem; } }
-
-    .card {
-      position: relative;
-      height: 100%;
-      border-radius: 1.5rem;
-      border: 1px solid var(--border);
-      background: var(--card);
-      padding: 2rem;
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
+    .card { position: relative; height: 100%; border-radius: 1.5rem; border: 1px solid var(--border); background: var(--card); padding: 2rem; overflow: hidden; transition: border-color 0.3s; }
     @media (min-width: 1024px) { .card { padding: 2.5rem; } }
     .card:hover { border-color: rgba(255, 255, 255, 0.25); }
-    .card-glow {
-      position: absolute;
-      top: -4rem;
-      right: -4rem;
-      width: 12rem;
-      height: 12rem;
-      border-radius: 9999px;
-      filter: blur(80px);
-      opacity: 0.2;
-      pointer-events: none;
-      transition: opacity 0.5s;
-    }
+    .card-glow { position: absolute; top: -4rem; right: -4rem; width: 12rem; height: 12rem; border-radius: 9999px; filter: blur(80px); opacity: 0.2; transition: opacity 0.5s; }
     .card:hover .card-glow { opacity: 0.4; }
-    .card-num {
-      font-family: "Outfit", sans-serif;
-      font-weight: 900;
-      font-size: 3rem;
-      color: rgba(255, 255, 255, 0.1);
-      transition: color 0.3s;
-    }
+    .card-num { font-family: "Outfit", sans-serif; font-weight: 900; font-size: 3rem; color: rgba(255, 255, 255, 0.1); transition: color 0.3s; }
     .card:hover .card-num { color: rgba(255, 255, 255, 0.2); }
-    .card-badge {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      font-weight: 600;
-      border-radius: 9999px;
-      padding: 0.375rem 0.75rem;
-    }
-    .card-icon-wrap {
-      margin: 2rem 0 1.5rem;
-      display: inline-flex;
-      border-radius: 1rem;
-      padding: 1rem;
-    }
-    .card-icon-wrap svg {
-      transition: transform 0.3s;
-    }
-    .card:hover .card-icon-wrap svg {
-      transform: scale(1.1) rotate(-6deg);
-    }
-    .card h3 {
-      font-family: "Outfit", sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: -0.025em;
-      color: #fff;
-      margin: 0;
-    }
+    .card-badge { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.2em; font-weight: 600; border-radius: 9999px; padding: 0.375rem 0.75rem; }
+    .card-icon-wrap { margin: 2rem 0 1.5rem; display: inline-flex; border-radius: 1rem; padding: 1rem; }
+    .card:hover .card-icon-wrap svg { transform: scale(1.1) rotate(-6deg); }
+    .card h3 { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 1.25rem; color: #fff; margin: 0; }
     @media (min-width: 640px) { .card h3 { font-size: 1.5rem; } }
-    .card .subtitle {
-      margin-top: 0.25rem;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      color: var(--slate-500);
-      text-transform: uppercase;
-    }
-    .card .desc {
-      margin-top: 1rem;
-      font-size: 0.875rem;
-      color: var(--slate-400);
-      line-height: 1.625;
-    }
-
-    /* ---------- Section: rules & inventory common ---------- */
+    .card .subtitle { margin-top: 0.25rem; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--slate-500); text-transform: uppercase; }
+    .card .desc { margin-top: 1rem; font-size: 0.875rem; color: var(--slate-400); line-height: 1.625; }
     .section-head { margin-bottom: 3.5rem; }
     @media (min-width: 768px) { .section-head { margin-bottom: 5rem; } }
-
-    /* ---------- Inventory section ---------- */
-    .inventory-section {
-      background: var(--card-2);
-      border-top: 1px solid var(--border-soft);
-      border-bottom: 1px solid var(--border-soft);
-    }
-    .inventory-head {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    @media (min-width: 768px) {
-      .inventory-head {
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
-      }
-    }
+    .inventory-section { background: var(--card-2); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+    .inventory-head { display: flex; flex-direction: column; gap: 1.5rem; }
+    @media (min-width: 768px) { .inventory-head { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
     .inventory-desc { max-width: 28rem; color: var(--slate-400); }
-    .inventory-card {
-      position: relative;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      border-radius: 1.5rem;
-      border: 1px solid var(--border);
-      background: var(--background);
-      padding: 2rem;
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
+    .inventory-card { position: relative; height: 100%; display: flex; flex-direction: column; border-radius: 1.5rem; border: 1px solid var(--border); background: var(--background); padding: 2rem; overflow: hidden; transition: transform 0.3s; }
     @media (min-width: 1024px) { .inventory-card { padding: 2.5rem; } }
     .inventory-card:hover { transform: translateY(-8px); }
-    .inventory-ghost-icon {
-      position: absolute;
-      bottom: -2rem;
-      right: -2rem;
-      opacity: 0.06;
-      pointer-events: none;
-      transition: transform 0.5s, opacity 0.5s;
-    }
-    .inventory-card:hover .inventory-ghost-icon {
-      opacity: 0.12;
-      transform: rotate(6deg) scale(1.1);
-    }
-    .inventory-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
-    .inventory-discount {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      color: var(--slate-500);
-      font-weight: 600;
-    }
-    .inventory-icon-wrap {
-      display: inline-flex;
-      width: fit-content;
-      margin-bottom: 1.5rem;
-      border-radius: 1rem;
-      padding: 1rem;
-    }
-    .inventory-icon-wrap svg { transition: transform 0.3s; }
-    .inventory-card:hover .inventory-icon-wrap svg { transform: scale(1.1); }
+    .inventory-ghost-icon { position: absolute; bottom: -2rem; right: -2rem; opacity: 0.06; transition: all 0.5s; }
+    .inventory-card:hover .inventory-ghost-icon { opacity: 0.12; transform: rotate(6deg) scale(1.1); }
+    .inventory-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
+    .inventory-discount { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--slate-500); font-weight: 600; }
+    .inventory-icon-wrap { display: inline-flex; width: fit-content; margin-bottom: 1.5rem; border-radius: 1rem; padding: 1rem; }
     .inventory-tagline { margin-top: 0.5rem; font-size: 0.875rem; color: var(--slate-400); }
-    .inventory-list {
-      margin: 1.5rem 0 0;
-      padding: 0;
-      list-style: none;
-      flex: 1;
-    }
-    .inventory-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.875rem;
-      color: var(--slate-300);
-      margin-bottom: 0.75rem;
-    }
-    .inventory-list li:last-child { margin-bottom: 0; }
-    .bullet {
-      display: block;
-      margin-top: 0.375rem;
-      width: 0.375rem;
-      height: 0.375rem;
-      flex-shrink: 0;
-      border-radius: 9999px;
-    }
-    .inventory-link {
-      margin-top: 2rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-      font-weight: 700;
-    }
-    .inventory-link svg { transition: transform 0.2s; }
+    .inventory-list { margin: 1.5rem 0 0; padding: 0; list-style: none; flex: 1; }
+    .inventory-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.875rem; color: var(--slate-300); margin-bottom: 0.75rem; }
+    .bullet { display: block; margin-top: 0.375rem; width: 0.375rem; height: 0.375rem; flex-shrink: 0; border-radius: 9999px; }
+    .inventory-link { margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 700; }
     .inventory-card:hover .inventory-link svg { transform: translate(2px, -2px); }
-
-    /* ---------- Social feed ---------- */
     .social-head { text-align: center; max-width: 48rem; margin: 0 auto 3.5rem; }
     @media (min-width: 768px) { .social-head { margin-bottom: 5rem; } }
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
+    .social-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
     @media (min-width: 768px) { .social-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; } }
-    .social-tile {
-      position: relative;
-      aspect-ratio: 1 / 1;
-      border-radius: 1rem;
-      border: 1px solid var(--border);
-      background: var(--card);
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
+    .social-tile { position: relative; aspect-ratio: 1 / 1; border-radius: 1rem; border: 1px solid var(--border); background: var(--card); overflow: hidden; transition: border-color 0.3s; }
     .social-tile:hover { border-color: rgba(255, 255, 255, 0.25); }
-    .social-tile-glow {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
+    .social-tile-glow { position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s; }
     .social-tile:hover .social-tile-glow { opacity: 1; }
-    .social-tile-body {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      padding: 1rem;
-    }
-    .social-tile-body svg { transition: transform 0.3s; }
-    .social-tile:hover .social-tile-body svg { transform: scale(1.1) rotate(-6deg); }
-    .social-tile-body span.label {
-      text-align: center;
-      font-family: "Outfit", sans-serif;
-      font-weight: 700;
-      font-size: 0.875rem;
-      color: #fff;
-      line-height: 1.25;
-    }
-    @media (min-width: 640px) { .social-tile-body span.label { font-size: 1rem; } }
-.social-tile-footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-}
-.social-stat {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-size: 0.75rem;
-  color: var(--slate-300);
-}
-.social-tag {
-  position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  color: var(--slate-500);
-  text-transform: uppercase;
-}
-.social-cta { margin-top: 3rem; text-align: center; }
-.social-cta-note {
-  margin-top: 1rem;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--slate-500);
-}
-
-/* ---------- Location footer ---------- */
-.location-section {
-  background: var(--background);
-  border-top: 1px solid var(--border);
-  position: relative;
-}
-.location-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.05;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
-}
-.location-section > .container { position: relative; z-index: 1; padding-top: 5rem; padding-bottom: 2.5rem; }
-@media (min-width: 768px) { .location-section > .container { padding-top: 7rem; } }
-.location-head { margin-bottom: 3.5rem; }
-@media (min-width: 768px) { .location-head { margin-bottom: 5rem; } }
-.location-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
-@media (min-width: 1024px) {
-  .location-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2rem; }
-  .location-map-col { grid-column: span 3 / span 3; }
-  .location-cards-col { grid-column: span 2 / span 2; display: flex; flex-direction: column; gap: 1.5rem; }
-}
-.map-container {
-  position: relative;
-  height: 320px;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-@media (min-width: 640px) { .map-container { height: 420px; } }
-.map-container iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  filter: grayscale(0.35) contrast(1.05);
-}
-.location-card {
-  border-radius: 1.5rem;
-  border: 1px solid var(--border);
-  background: var(--card);
-  padding: 1.75rem;
-}
-@media (min-width: 640px) { .location-card { padding: 2rem; } }
-.location-card-head {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
-}
-.location-card-icon {
-  border-radius: 0.75rem;
-  padding: 0.625rem;
-}
-.location-card h3 {
-  margin: 0;
-  font-family: "Outfit", sans-serif;
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: #fff;
-}
-.location-card p { color: var(--slate-300); line-height: 1.625; margin: 0; }
-.location-card .btn { width: 100%; margin-top: 1.5rem; }
-.location-card .btn.secondary { margin-top: 0.75rem; }
-.hours-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 0.75rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border-soft);
-}
-.hours-row:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
-.hours-row span:first-child { font-size: 0.875rem; color: var(--slate-400); }
-.hours-row span:last-child {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #fff;
-}
-.hours-note {
-  margin-top: 1rem;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--slate-500);
-  text-transform: uppercase;
-}
-.footer-bottom {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-}
-@media (min-width: 768px) { .footer-bottom { margin-top: 5rem; } }
-@media (min-width: 640px) { .footer-bottom { flex-direction: row; } }
-.footer-brand { display: flex; align-items: center; gap: 0.75rem; }
-.footer-brand span.brand-name {
-  font-family: "Outfit", sans-serif;
-  font-weight: 900;
-  font-size: 0.875rem;
-  color: #fff;
-}
-.footer-brand span.brand-name .accent { color: var(--primary); }
-.footer-copy {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--slate-500);
-  text-align: center;
-  text-transform: uppercase;
-  margin: 0;
-}
-.footer-links { display: flex; align-items: center; gap: 1.5rem; }
-.footer-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--slate-300);
-  transition: color 0.2s;
-}
-.footer-links a.phone:hover { color: var(--cyan); }
-.footer-links a.insta:hover { color: var(--primary); }
-.footer-links a svg { transition: transform 0.2s; }
-.footer-links a:hover svg { transform: scale(1.1); }
-
-/* helpers */
-.text-cyan { color: var(--cyan); }
-.text-primary { color: var(--primary); }
-.text-white { color: #fff; }
-.text-slate-500 { color: var(--slate-500); }
-.text-slate-400 { color: var(--slate-400); }
-</style>
+    .social-tile-body { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; }
+    .social-tile-body span.label { text-align: center; font-family: "Outfit", sans-serif; font-weight: 700; font-size: 0.875rem; color: #fff; }
+    .social-tile-footer { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1rem; background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent); }
+    .social-stat { display: flex; align-items: center; gap: 0.375rem; font-size: 0.75rem; color: var(--slate-300); }
+    .social-tag { position: absolute; top: 0.75rem; left: 0.75rem; font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--slate-500); }
+    .social-cta { margin-top: 3rem; text-align: center; }
+    .social-cta-note { margin-top: 1rem; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--slate-500); }
+    .location-section { background: var(--background); border-top: 1px solid var(--border); position: relative; }
+    .location-section > .container { padding-top: 5rem; padding-bottom: 2.5rem; }
+    @media (min-width: 768px) { .location-section > .container { padding-top: 7rem; } }
+    .location-head { margin-bottom: 3.5rem; }
+    .location-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+    @media (min-width: 1024px) { .location-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2rem; } .location-map-col { grid-column: span 3 / span 3; } .location-cards-col { grid-column: span 2 / span 2; display: flex; flex-direction: column; gap: 1.5rem; } }
+    .map-container { position: relative; height: 320px; border-radius: 1.5rem; overflow: hidden; border: 1px solid var(--border); }
+    @media (min-width: 640px) { .map-container { height: 420px; } }
+    .map-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(0.35) contrast(1.05); }
+    .location-card { border-radius: 1.5rem; border: 1px solid var(--border); background: var(--card); padding: 1.75rem; }
+    .location-card-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .location-card-icon { border-radius: 0.75rem; padding: 0.625rem; }
+    .location-card h3 { margin: 0; font-family: "Outfit", sans-serif; font-weight: 700; font-size: 1.125rem; color: #fff; }
+    .location-card p { color: var(--slate-300); line-height: 1.625; margin: 0; }
+    .location-card .btn { width: 100%; margin-top: 1.5rem; }
+    .location-card .btn.secondary { margin-top: 0.75rem; }
+    .hours-row { display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.75rem; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-soft); }
+    .hours-row:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+    .hours-row span:first-child { font-size: 0.875rem; color: var(--slate-400); }
+    .hours-row span:last-child { font-family: "JetBrains Mono", monospace; font-size: 0.875rem; font-weight: 600; color: #fff; }
+    .hours-note { margin-top: 1rem; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--slate-500); text-transform: uppercase; }
+    .footer-bottom { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 1.25rem; }
+    @media (min-width: 640px) { .footer-bottom { flex-direction: row; } }
+    .footer-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .footer-brand span.brand-name { font-family: "Outfit", sans-serif; font-weight: 900; font-size: 0.875rem; color: #fff; }
+    .footer-copy { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--slate-500); text-align: center; text-transform: uppercase; margin: 0; }
+    .footer-links { display: flex; align-items: center; gap: 1.5rem; }
+    .footer-links a { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--slate-300); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+  </style>
 </head>
 <body>
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root"></div>
+  <div id="root"></div>
 
-<!-- ======================================================================
-     The app — written in JSX, compiled in-browser by Babel.
-     Mirrors the production React app in main.eb2097c6.js but readable.
-     ====================================================================== -->
-<script type="text/babel" data-presets="react">
-  const { useState, useEffect } = React;
+  <script type="text/babel" data-presets="react">
+    const { useState, useEffect } = React;
 
-  // ---------- Lucide-style icons ----------
-  const Icon = ({ size = 24, color, className = "", strokeWidth = 2, children, ...rest }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
-         fill="none" stroke={color || "currentColor"} strokeWidth={strokeWidth}
-         strokeLinecap="round" strokeLinejoin="round" className={`lucide ${className}`}
-         aria-hidden="true" {...rest}>
-      {children}
-    </svg>
-  );
+    const Icon = ({ size = 24, color, className = "", strokeWidth = 2, children, ...rest }) => (
+      <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color || "currentColor"} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={`lucide ${className}`} aria-hidden="true" {...rest}>{children}</svg>
+    );
 
-  const MapPin = (p) => <Icon {...p}><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></Icon>;
-  const X = (p) => <Icon {...p}><path d="M18 6 6 18" /><path d="m6 6 12 12" /></Icon>;
-  const Menu = (p) => <Icon {...p}><path d="M4 12h16" /><path d="M4 18h16" /><path d="M4 6h16" /></Icon>;
-  const Instagram = (p) => <Icon {...p}><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></Icon>;
-  const ArrowDown = (p) => <Icon {...p}><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></Icon>;
-  const Truck = (p) => <Icon {...p}><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></Icon>;
-  const Zap = (p) => <Icon {...p}><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></Icon>;
-  const ShieldCheck = (p) => <Icon {...p}><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></Icon>;
-  const Armchair = (p) => <Icon {...p}><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3" /><path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z" /><path d="M5 18v2" /><path d="M19 18v2" /></Icon>;
-  const CookingPot = (p) => <Icon {...p}><path d="M2 12h20" /><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" /><path d="m4 8 16-4" /><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8" /></Icon>;
-  const Luggage = (p) => <Icon {...p}><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" /><path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" /><path d="M10 20h4" /><circle cx="16" cy="20" r="2" /><circle cx="8" cy="20" r="2" /></Icon>;
-  const ArrowUpRight = (p) => <Icon {...p}><path d="M7 7h10v10" /><path d="M7 17 17 7" /></Icon>;
-  const Heart = (p) => <Icon {...p}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></Icon>;
-  const MessageCircle = (p) => <Icon {...p}><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></Icon>;
-  const Bookmark = (p) => <Icon {...p}><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" /></Icon>;
-  const Tag = (p) => <Icon {...p}><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /><circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></Icon>;
-  const Store = (p) => <Icon {...p}><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" /></Icon>;
-  const Navigation = (p) => <Icon {...p}><polygon points="3 11 22 2 13 21 11 13 3 11" /></Icon>;
-  const Phone = (p) => <Icon {...p}><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></Icon>;
-  const Clock = (p) => <Icon {...p}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></Icon>;
+    const MapPin = (p) => <Icon {...p}><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></Icon>;
+    const X = (p) => <Icon {...p}><path d="M18 6 6 18" /><path d="m6 6 12 12" /></Icon>;
+    const Menu = (p) => <Icon {...p}><path d="M4 12h16" /><path d="M4 18h16" /><path d="M4 6h16" /></Icon>;
+    const Instagram = (p) => <Icon {...p}><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></Icon>;
+    const ArrowDown = (p) => <Icon {...p}><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></Icon>;
+    const Truck = (p) => <Icon {...p}><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></Icon>;
+    const Zap = (p) => <Icon {...p}><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></Icon>;
+    const ShieldCheck = (p) => <Icon {...p}><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></Icon>;
+    const Armchair = (p) => <Icon {...p}><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3" /><path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z" /><path d="M5 18v2" /><path d="M19 18v2" /></Icon>;
+    const CookingPot = (p) => <Icon {...p}><path d="M2 12h20" /><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" /><path d="m4 8 16-4" /><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8" /></Icon>;
+    const Luggage = (p) => <Icon {...p}><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" /><path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" /><path d="M10 20h4" /><circle cx="16" cy="20" r="2" /><circle cx="8" cy="20" r="2" /></Icon>;
+    const ArrowUpRight = (p) => <Icon {...p}><path d="M7 7h10v10" /><path d="M7 17 17 7" /></Icon>;
+    const Heart = (p) => <Icon {...p}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></Icon>;
+    const MessageCircle = (p) => <Icon {...p}><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></Icon>;
+    const Bookmark = (p) => <Icon {...p}><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" /></Icon>;
+    const Tag = (p) => <Icon {...p}><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" /><circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></Icon>;
+    const Store = (p) => <Icon {...p}><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" /></Icon>;
+    const Navigation = (p) => <Icon {...p}><polygon points="3 11 22 2 13 21 11 13 3 11" /></Icon>;
+    const Phone = (p) => <Icon {...p}><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></Icon>;
+    const Clock = (p) => <Icon {...p}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></Icon>;
 
-  // ---------- Brand logo (matches the favicon exactly) ----------
-  const BrandMark = ({ size = 40 }) => (
-    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <rect x="2" y="2" width="44" height="44" rx="10" fill="#FF5500" />
-      <path d="M13 31.5L24 10L35 31.5" stroke="#0B0D10" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d="M28 36L33.5 27.5L39 36" stroke="#0B0D10" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    </svg>
-  );
+    const BrandMark = ({ size = 40 }) => (
+      <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="2" y="2" width="44" height="44" rx="10" fill="#FF5500" /><path d="M13 31.5L24 10L35 31.5" stroke="#0B0D10" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" fill="none" /><path d="M28 36L33.5 27.5L39 36" stroke="#0B0D10" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
+    );
 
-  const BrandLogo = () => (
-    <div className="brand" data-testid="header-brand-logo">
-      <BrandMark size={38} />
-      <div className="brand-text" style={{ lineHeight: 1 }}>
-        <div className="title">SMART DEALS</div>
-        <div className="sub">MARKET</div>
-      </div>
-    </div>
-  );
+    const BrandLogo = () => (
+      <div className="brand"><BrandMark size={38} /><div className="brand-text" style={{ lineHeight: 1 }}><div className="title">SMART DEALS</div><div className="sub">MARKET</div></div></div>
+    );
 
-  // ---------- Header ----------
-  const NAV = [
-    { label: "Store Rules", href: "#rules" },
-    { label: "Inventory", href: "#inventory" },
-    { label: "Find Us", href: "#location" },
-    { label: "Hours", href: "#location" },
-  ];
+    const NAV = [{ label: "Store Rules", href: "#rules" },{ label: "Inventory", href: "#inventory" },{ label: "Find Us", href: "#location" },{ label: "Hours", href: "#location" }];
 
-  function Header() {
-    const [open, setOpen] = useState(false);
-    return (
-      <header className="header" data-testid="site-header">
-        <div className="container">
-          <div className="header-inner">
-            <a href="#top" aria-label="Smart Deals Market home">
-              <BrandLogo />
-            </a>
-            <nav className="nav-desktop" aria-label="Primary">
-              {NAV.map((n) => (
-                <a key={n.label} href={n.href}>{n.label}</a>
-              ))}
-            </nav>
-            <div className="header-cta-desktop">
-              <div className="header-pill">
-                <span className="dot" style={{ width: 8, height: 8 }} />
-                <span>NEW DROP TODAY</span>
+    function Header() {
+      const [open, setOpen] = useState(false);
+      return (
+        <header className="header">
+          <div className="container">
+            <div className="header-inner">
+              <a href="#top"><BrandLogo /></a>
+              <nav className="nav-desktop">{NAV.map((n) => (<a key={n.label} href={n.href}>{n.label}</a>))}</nav>
+              <div className="header-cta-desktop">
+                <div className="header-pill"><span className="dot" style={{ width: 8, height: 8 }} /><span>NEW DROP TODAY</span></div>
+                <a href="#location" className="btn btn-primary btn-sm"><MapPin size={16} /> Get Directions</a>
               </div>
-              <a href="#location" className="btn btn-primary btn-sm">
-                <MapPin size={16} /> Get Directions
-              </a>
-            </div>
-            <button
-              className="mobile-toggle"
-              onClick={() => setOpen(!open)}
-              aria-label={open ? "Close menu" : "Open menu"}
-            >
-              {open ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-        {open && (
-          <div className="mobile-menu">
-            <div className="mobile-menu-inner">
-              {NAV.map((n) => (
-                <a key={n.label} href={n.href} onClick={() => setOpen(false)}>
-                  {n.label}
-                </a>
-              ))}
-              <a href="#location" className="btn btn-primary" onClick={() => setOpen(false)}>
-                <MapPin size={16} /> Get Directions
-              </a>
+              <button className="mobile-toggle" onClick={() => setOpen(!open)}>{open ? <X size={24} /> : <Menu size={24} />}</button>
             </div>
           </div>
-        )}
-      </header>
-    );
-  }
+          {open && (
+            <div className="mobile-menu"><div className="mobile-menu-inner">{NAV.map((n) => (<a key={n.label} href={n.href} onClick={() => setOpen(false)}>{n.label}</a>))}<a href="#location" className="btn btn-primary" onClick={() => setOpen(false)}><MapPin size={16} /> Get Directions</a></div></div>
+          )}
+        </header>
+      );
+    }
 
-  // ---------- Hero ----------
-  function Hero() {
-    return (
-      <section id="top" className="hero" data-testid="hero-section">
-        <div className="hero-grain" aria-hidden="true" />
-        <div className="hero-bg-text" aria-hidden="true">DEALS</div>
-        <div className="hero-glow" aria-hidden="true" />
-        <div className="container hero-content">
-          <div className="pill">
-            <span className="dot" />
-            <span>POTOMAC MILLS MALL · WOODBRIDGE, VA</span>
+    function Hero() {
+      return (
+        <section id="top" className="hero">
+          <div className="hero-grain" /><div className="hero-bg-text">DEALS</div><div className="hero-glow" />
+          <div className="container hero-content">
+            <div className="pill"><span className="dot" /><span>POTOMAC MILLS MALL · WOODBRIDGE, VA</span></div>
+            <h1><span className="reveal-line"><span>Big Brands.</span></span><span className="reveal-line"><span><span className="accent">Unbeatable Prices.</span></span></span><span className="reveal-line"><span>Right Around The Corner.</span></span></h1>
+            <p className="subhead">Potomac Mills' premier liquidation outlet for home essentials, furniture, luggage, and daily surprises. New truckloads arrive weekly — when it's gone, it's gone.</p>
+            <div className="hero-actions">
+              <a href="#location" className="btn btn-primary"><MapPin size={18} /> Find Us Inside the Mall</a>
+              <a href="https://www.instagram.com/smartdealsmarket_" target="_blank" rel="noopener noreferrer" className="btn btn-secondary"><Instagram size={18} style={{ color: "var(--cyan)" }} /> See This Week's Arrivals</a>
+            </div>
+            <div className="hero-scroll"><ArrowDown size={16} className="bounce" /><span>SCROLL FOR THE GOOD STUFF</span></div>
           </div>
-          <h1 data-testid="hero-headline">
-            <span className="reveal-line"><span>Big Brands.</span></span>
-            <span className="reveal-line"><span><span className="accent">Unbeatable Prices.</span></span></span>
-            <span className="reveal-line"><span>Right Around The Corner.</span></span>
-          </h1>
-          <p className="subhead" data-testid="hero-subheadline">
-            Potomac Mills' premier liquidation outlet for home essentials, furniture, luggage, and daily surprises. New truckloads arrive weekly — when it's gone, it's gone.
-          </p>
-          <div className="hero-actions">
-            <a href="#location" className="btn btn-primary" data-testid="hero-primary-cta">
-              <MapPin size={18} /> Find Us Inside the Mall
-            </a>
-            <a href="https://www.instagram.com/smartdealsmarket_" target="_blank" rel="noopener noreferrer"
-               className="btn btn-secondary" data-testid="hero-secondary-cta">
-              <Instagram size={18} style={{ color: "var(--cyan)" }} /> See This Week's Arrivals
-            </a>
-          </div>
-          <div className="hero-scroll">
-            <ArrowDown size={16} className="bounce" />
-            <span>SCROLL FOR THE GOOD STUFF</span>
-          </div>
-        </div>
-      </section>
-    );
-  }
+        </section>
+      );
+    }
 
-  // ---------- Marquee ----------
-  const MARQUEE_ITEMS = ["WEEKLY TRUCKLOADS","UP TO 70% OFF MSRP","POTOMAC MILLS MALL","WOODBRIDGE, VA","ALL SALES FINAL","FIRST COME FIRST SERVED","NEW DROPS DAILY"];
+    const MARQUEE_ITEMS = ["WEEKLY TRUCKLOADS","UP TO 70% OFF MSRP","POTOMAC MILLS MALL","WOODBRIDGE, VA","ALL SALES FINAL","FIRST COME FIRST SERVED","NEW DROPS DAILY"];
+    const MarqueeGroup = () => (<div className="marquee-group">{MARQUEE_ITEMS.map((t, i) => (<span className="marquee-item" key={i}><span>{t}</span><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#0B0D10" /></svg></span>))}</div>);
+    const Marquee = () => (<div className="marquee"><div className="marquee-track"><MarqueeGroup /><MarqueeGroup /></div></div>);
 
-  const MarqueeGroup = () => (
-    <div className="marquee-group">
-      {MARQUEE_ITEMS.map((t, i) => (
-        <span className="marquee-item" key={i}>
-          <span>{t}</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-            <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#0B0D10" />
-          </svg>
-        </span>
-      ))}
-    </div>
-  );
+    const RULES = [
+      { step: "01", title: "Weekly Truckloads", subtitle: "Fresh Inventory Drops", description: "Fresh closeout inventory and top-tier liquidations arriving constantly. What you see today might be gone tomorrow — because next week's truck is already on the road.", icon: Truck, badge: "FRESH ARRIVALS", accent: "#FF5500" },
+      { step: "02", title: "First Come, First Served", subtitle: "Treasure Hunter's Rule", description: "We cannot hold items. If you love it, grab it before it's gone! The fastest bargain hunters take home the biggest brand-name trophies.", icon: Zap, badge: "NO HOLDS", accent: "#00E5FF" },
+      { step: "03", title: "All Sales Final", subtitle: "Transparent Deep Savings", description: "We pass massive liquidation savings directly to you; all purchases are final. Inspect your items in-store and enjoy up to 70% off retail MSRP.", icon: ShieldCheck, badge: "MAX SAVINGS", accent: "#10B981" }
+    ];
 
-  const Marquee = () => (
-    <div className="marquee" data-testid="deal-marquee">
-      <div className="marquee-track">
-        <MarqueeGroup />
-        <MarqueeGroup />
-      </div>
-    </div>
-  );
-
-  // ---------- Store Rules ----------
-  const RULES = [
-    { step: "01", title: "Weekly Truckloads", subtitle: "Fresh Inventory Drops",
-      description: "Fresh closeout inventory and top-tier liquidations arriving constantly. What you see today might be gone tomorrow — because next week's truck is already on the road.",
-      icon: Truck, badge: "FRESH ARRIVALS", accent: "#FF5500", testid: "rule-card-weekly-truckloads" },
-    { step: "02", title: "First Come, First Served", subtitle: "Treasure Hunter's Rule",
-      description: "We cannot hold items. If you love it, grab it before it's gone! The fastest bargain hunters take home the biggest brand-name trophies.",
-      icon: Zap, badge: "NO HOLDS", accent: "#00E5FF", testid: "rule-card-first-come" },
-    { step: "03", title: "All Sales Final", subtitle: "Transparent Deep Savings",
-      description: "We pass massive liquidation savings directly to you; all purchases are final. Inspect your items in-store and enjoy up to 70% off retail MSRP.",
-      icon: ShieldCheck, badge: "MAX SAVINGS", accent: "#10B981", testid: "rule-card-all-sales-final" },
-  ];
-
-  function StoreRules() {
-    return (
-      <section id="rules" className="section" data-testid="store-rules-section">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">HOW WE WORK</span>
-            <h2 className="h2">The rules of the hunt.</h2>
-            <p className="lead">Three simple rules keep our prices this low — and the thrill this high.</p>
-          </div>
-          <div className="grid grid-3">
-            {RULES.map((r) => {
-              const I = r.icon;
-              return (
-                <div key={r.testid} className="card" data-testid={r.testid}>
-                  <div className="card-glow" style={{ backgroundColor: r.accent }} aria-hidden="true" />
-                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
-                    <span className="card-num">{r.step}</span>
-                    <span className="card-badge" style={{ color: r.accent, backgroundColor: r.accent + "1A", border: `1px solid ${r.accent}40` }}>
-                      {r.badge}
-                    </span>
+    function StoreRules() {
+      return (
+        <section id="rules" className="section">
+          <div className="container">
+            <div className="section-head"><span className="eyebrow">HOW WE WORK</span><h2 className="h2">The rules of the hunt.</h2><p className="lead">Three simple rules keep our prices this low — and the thrill this high.</p></div>
+            <div className="grid grid-3">
+              {RULES.map((r) => {
+                const I = r.icon;
+                return (
+                  <div key={r.title} className="card">
+                    <div className="card-glow" style={{ backgroundColor: r.accent }} />
+                    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}><span className="card-num">{r.step}</span><span className="card-badge" style={{ color: r.accent, backgroundColor: r.accent + "1A", border: `1px solid ${r.accent}40` }}>{r.badge}</span></div>
+                    <div className="card-icon-wrap" style={{ backgroundColor: r.accent + "14" }}><I size={32} style={{ color: r.accent }} /></div>
+                    <h3>{r.title}</h3><p className="subtitle">{r.subtitle}</p><p className="desc">{r.description}</p>
                   </div>
-                  <div className="card-icon-wrap" style={{ backgroundColor: r.accent + "14" }}>
-                    <I size={32} style={{ color: r.accent }} />
-                  </div>
-                  <h3>{r.title}</h3>
-                  <p className="subtitle">{r.subtitle}</p>
-                  <p className="desc">{r.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // ---------- Inventory ----------
-  const INVENTORY = [
-    { id: "home-styling", title: "Home Styling & Furniture",
-      tagline: "Elevate your space for a fraction of store price", discount: "SAVE 40–70% MSRP",
-      items: ["Accent chairs & side tables","Modern lighting & lamps","Area rugs & textiles","Wall mirrors & home decor"],
-      icon: Armchair, badge: "HIGH DEMAND", accent: "#FF5500" },
-    { id: "kitchen-hosting", title: "Kitchen & Hosting",
-      tagline: "Chef-grade cookware & entertaining essentials", discount: "SAVE 50–75% MSRP",
-      items: ["Serving platters & hosting trays","Premium cookware sets","Stoneware & glassware","Everyday home essentials"],
-      icon: CookingPot, badge: "NEW DROP", accent: "#00E5FF" },
-    { id: "travel-luggage", title: "Travel & Luggage",
-      tagline: "First-class travel gear without the luxury markup", discount: "SAVE 45–70% MSRP",
-      items: ["Multi-size luggage sets","Durable carry-ons","Weekender travel bags","Travel accessories & organizers"],
-      icon: Luggage, badge: "LIMITED STOCK", accent: "#10B981" },
-  ];
-
-  function Inventory() {
-    return (
-      <section id="inventory" className="section inventory-section" data-testid="inventory-section">
-        <div className="container">
-          <div className="section-head inventory-head">
-            <div>
-              <span className="eyebrow cyan">REVOLVING INVENTORY</span>
-              <h2 className="h2">This week's treasure map.</h2>
+                );
+              })}
             </div>
-            <p className="inventory-desc">Our floor changes constantly — these are the categories hunters ask about most. Stock rotates with every truckload.</p>
+          </div>
+        </section>
+      );
+    }
+    const INVENTORY = [
+      { id: "home-styling", title: "Home Styling & Furniture", tagline: "Elevate your space for a fraction of store price", discount: "SAVE 40–70% MSRP", items: ["Accent chairs & side tables","Modern lighting & lamps","Area rugs & textiles","Wall mirrors & home decor"], icon: Armchair, badge: "HIGH DEMAND", accent: "#FF5500" },
+      { id: "kitchen-hosting", title: "Kitchen & Hosting", tagline: "Chef-grade cookware & entertaining essentials", discount: "SAVE 50–75% MSRP", items: ["Serving platters & hosting trays","Premium cookware sets","Stoneware & glassware","Everyday home essentials"], icon: CookingPot, badge: "NEW DROP", accent: "#00E5FF" },
+      { id: "travel-luggage", title: "Travel & Luggage", tagline: "First-class travel gear without the luxury markup", discount: "SAVE 45–70% MSRP", items: ["Multi-size luggage sets","Durable carry-ons","Weekender travel bags","Travel accessories & organizers"], icon: Luggage, badge: "LIMITED STOCK", accent: "#10B981" }
+    ];
+
+    function Inventory() {
+      return (
+        <section id="inventory" className="section inventory-section">
+          <div className="container">
+            <div className="section-head inventory-head">
+              <div><span className="eyebrow cyan">REVOLVING INVENTORY</span><h2 className="h2">This week's treasure map.</h2></div>
+              <p className="inventory-desc">Our floor changes constantly — these are the categories hunters ask about most. Stock rotates with every truckload.</p>
             </div>
             <div className="grid grid-3">
-             {INVENTORY.map((c) => {
-          const I = c.icon;
-              return (
-                <article key={c.id} className="inventory-card" data-testid={`category-${c.id}`}>
-                  <I size={200} className="inventory-ghost-icon" style={{ color: c.accent }} />
-                  <div className="inventory-top">
-                    <span className="card-badge" style={{ color: c.accent, backgroundColor: c.accent + "1A", border: `1px solid ${c.accent}40` }}>
-                      {c.badge}
-                    </span>
-                    <span className="inventory-discount">{c.discount}</span>
-                  </div>
-                  <div className="inventory-icon-wrap" style={{ backgroundColor: c.accent + "14" }}>
-                    <I size={36} style={{ color: c.accent }} />
-                  </div>
-                  <h3>{c.title}</h3>
-                  <p className="inventory-tagline">{c.tagline}</p>
-                  <ul className="inventory-list">
-                    {c.items.map((it) => (
-                      <li key={it}>
-                        <span className="bullet" style={{ backgroundColor: c.accent }} />
-                        {it}
-                      </li>
-                    ))}
-                  </ul>
-                  <a href="https://www.instagram.com/smartdealsmarket_" target="_blank" rel="noopener noreferrer"
-                     className="inventory-link" style={{ color: c.accent }} data-testid={`category-${c.id}-cta`}>
-                    See what's in stock <ArrowUpRight size={16} />
-                  </a>
-                </article>
-              );
-            })}
+              {INVENTORY.map((c) => {
+                const I = c.icon;
+                return (
+                  <article key={c.id} className="inventory-card">
+                    <I size={200} className="inventory-ghost-icon" style={{ color: c.accent }} />
+                    <div className="inventory-top"><span className="card-badge" style={{ color: c.accent, backgroundColor: c.accent + "1A", border: `1px solid ${c.accent}40` }}>{c.badge}</span><span className="inventory-discount">{c.discount}</span></div>
+                    <div className="inventory-icon-wrap" style={{ backgroundColor: c.accent + "14" }}><I size={36} style={{ color: c.accent }} /></div>
+                    <h3>{c.title}</h3><p className="inventory-tagline">{c.tagline}</p>
+                    <ul className="inventory-list">{c.items.map((it) => (<li key={it}><span className="bullet" style={{ backgroundColor: c.accent }} />{it}</li>))}</ul>
+                    <a href="https://www.instagram.com/smartdealsmarket_" target="_blank" rel="noopener noreferrer" className="inventory-link" style={{ color: c.accent }}>See what's in stock <ArrowUpRight size={16} /></a>
+                  </article>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
-    );
-  }
+        </section>
+      );
+    }
 
-  // ---------- Social feed ----------
-  const SOCIAL = [
-    { icon: Armchair, label: "Accent Chairs Drop", likes: "342", comments: "28", accent: "#FF5500" },
-    { icon: Truck, label: "New Truckload Day", likes: "517", comments: "63", accent: "#00E5FF" },
-    { icon: CookingPot, label: "Kitchen Haul", likes: "289", comments: "19", accent: "#10B981" },
-    { icon: Luggage, label: "Luggage Sets Restock", likes: "431", comments: "45", accent: "#FF5500" },
-    { icon: Tag, label: "70% Off Finds", likes: "608", comments: "71", accent: "#00E5FF" },
-    { icon: Store, label: "Inside The Store", likes: "254", comments: "16", accent: "#10B981" },
-  ];
+    const SOCIAL = [
+      { icon: Armchair, label: "Accent Chairs Drop", likes: "342", comments: "28", accent: "#FF5500" },
+      { icon: Truck, label: "New Truckload Day", likes: "517", comments: "63", accent: "#00E5FF" },
+      { icon: CookingPot, label: "Kitchen Haul", likes: "289", comments: "19", accent: "#10B981" },
+      { icon: Luggage, label: "Luggage Sets Restock", likes: "431", comments: "45", accent: "#FF5500" },
+      { icon: Tag, label: "70% Off Finds", likes: "608", comments: "71", accent: "#00E5FF" },
+      { icon: Store, label: "Inside The Store", likes: "254", comments: "16", accent: "#10B981" }
+    ];
 
-  function SocialFeed() {
-    return (
-      <section id="social" className="section" data-testid="social-feed-section">
-        <div className="container">
-          <div className="social-head">
-            <span className="eyebrow">LIVE FROM THE FLOOR</span>
-            <h2 className="h2">Catch the next deal before it sells out.</h2>
-            <p className="lead" style={{ marginLeft: "auto", marginRight: "auto", fontSize: "1.125rem" }}>
-              Our stock changes daily. Follow{" "}
-              <a href="https://www.instagram.com/smartdealsmarket_" target="_blank" rel="noopener noreferrer"
-                 style={{ fontWeight: 700, color: "var(--primary)" }}>
-                @smartdealsmarket_
-              </a>{" "}
-              on Instagram — new drops are posted the moment the truck is unloaded.
-            </p>
+    function SocialFeed() {
+      return (
+        <section id="social" className="section">
+          <div className="container">
+            <div className="social-head">
+              <span className="eyebrow">LIVE FROM THE FLOOR</span><h2 className="h2">Catch the next deal before it sells out.</h2>
+              <p className="lead" style={{ marginLeft: "auto", marginRight: "auto", fontSize: "1.125rem" }}>Our stock changes daily. Follow <a href="https://www.instagram.com/smartdealsmarket_" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 700, color: "var(--primary)" }}>@smartdealsmarket_</a> on Instagram — new drops are posted the moment the truck is unloaded.</p>
+            </div>
+            <div className="social-grid">
+              {SOCIAL.map((s, i) => {
+                const I = s.icon;
+                return (
+                  <div key={i} className="social-tile">
+                    <div className="social-tile-glow" style={{ background: `radial-gradient(circle at 50% 40%, ${s.accent}26, transparent 70%)` }} />
+                    <div className="social-tile-body"><I size={44} style={{ color: s.accent }} /><span className="label">{s.label}</span></div>
+                    <span className="social-tag">Preview</span>
+                    <div className="social-tile-footer"><span className="social-stat"><Heart size={13} style={{ color: "var(--primary)", fill: "var(--primary)" }} /> {s.likes}</span><span className="social-stat"><MessageCircle size={13} /> {s.comments}</span><Bookmark size={13} style={{ color: "var(--slate-400)" }} /></div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="social-cta">
+              <a href="https://www.instagram.com/smartdealsmarket_" target="_blank" rel="noopener noreferrer" className="btn btn-primary"><Instagram size={20} /> Follow @smartdealsmarket_</a>
+              <p className="social-cta-note">LIVE FEED COMING SOON — FOLLOW FOR REAL-TIME DROPS</p>
+            </div>
           </div>
-          <div className="social-grid" data-testid="social-feed-container">
-            {SOCIAL.map((s, i) => {
-              const I = s.icon;
-              return (
-                <div key={i} className="social-tile" data-testid={`social-post-${i}`}>
-                  <div className="social-tile-glow" style={{ background: `radial-gradient(circle at 50% 40%, ${s.accent}26, transparent 70%)` }} aria-hidden="true" />
-                  <div className="social-tile-body">
-                    <I size={44} style={{ color: s.accent }} />
-                    <span className="label">{s.label}</span>
-                  </div>
-                  <span className="social-tag">Preview</span>
-                  <div className="social-tile-footer">
-                    <span className="social-stat">
-                      <Heart size={13} style={{ color: "var(--primary)", fill: "var(--primary)" }} /> {s.likes}
-                    </span>
-                    <span className="social-stat">
-                      <MessageCircle size={13} /> {s.comments}
-                    </span>
-                    <Bookmark size={13} className="text-slate-400" />
-                  </div>
+        </section>
+      );
+    }
+
+    const HOURS = [{ days: "Monday – Saturday", hours: "10:00 AM – 9:00 PM" },{ days: "Sunday", hours: "11:00 AM – 6:00 PM" }];
+
+    function Location() {
+      return (
+        <footer id="location" className="location-section">
+          <div className="container">
+            <div className="location-head"><span className="eyebrow">FIND THE TREASURE</span><h2 className="h2">Inside Potomac Mills Mall.</h2></div>
+            <div className="location-grid">
+              <div className="location-map-col">
+                <div className="map-container"><iframe title="Map" src="https://www.google.com/maps?q=2700+Potomac+Mills+Circle,+Woodbridge,+VA+22192&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div>
+              </div>
+              <div className="location-cards-col">
+                <div className="location-card">
+                  <div className="location-card-head"><div className="location-card-icon" style={{ background: "rgba(255,85,0,0.15)" }}><MapPin size={20} style={{ color: "var(--primary)" }} /></div><h3>Where to find us</h3></div>
+                  <p>Find us inside <strong style={{ color: "#fff" }}>Potomac Mills Mall</strong> — 2700 Potomac Mills Circle, Woodbridge, VA 22192 — <span style={{ color: "var(--primary)", fontWeight: 600 }}>directly across from T.J. Maxx</span>.</p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=2700+Potomac+Mills+Circle+Woodbridge+VA+22192" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm"><Navigation size={16} /> Get Directions</a>
+                  <a href="tel:+15712924247" className="btn btn-secondary btn-sm secondary"><Phone size={16} style={{ color: "var(--cyan)" }} /> Call (571) 292-4247</a>
                 </div>
-              );
-            })}
-          </div>
-          <div className="social-cta">
-            <a href="https://www.instagram.com/smartdealsmarket_" target="_blank" rel="noopener noreferrer"
-               className="btn btn-primary" data-testid="instagram-follow-cta">
-              <Instagram size={20} /> Follow @smartdealsmarket_
-            </a>
-            <p className="social-cta-note">LIVE FEED COMING SOON — FOLLOW FOR REAL-TIME DROPS</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // ---------- Location footer ----------
-  const HOURS = [
-    { days: "Monday – Saturday", hours: "10:00 AM – 9:00 PM" },
-    { days: "Sunday", hours: "11:00 AM – 6:00 PM" },
-  ];
-
-  function Location() {
-    return (
-      <footer id="location" className="location-section" data-testid="location-section">
-        <div className="container">
-          <div className="location-head">
-            <span className="eyebrow">FIND THE TREASURE</span>
-            <h2 className="h2">Inside Potomac Mills Mall.</h2>
-          </div>
-          <div className="location-grid">
-            <div className="location-map-col">
-              <div className="map-container" data-testid="map-container">
-                <iframe
-                  title="Smart Deals Market — Potomac Mills Mall map"
-                  src="https://www.google.com/maps?q=2700+Potomac+Mills+Circle,+Woodbridge,+VA+22192&output=embed"
-                  loading="lazy"
-                  allowFullScreen
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <div className="location-card">
+                  <div className="location-card-head"><div className="location-card-icon" style={{ background: "rgba(0,229,255,0.15)" }}><Clock size={20} style={{ color: "var(--cyan)" }} /></div><h3>Operating hours</h3></div>
+                  {HOURS.map((h) => (<div key={h.days} className="hours-row"><span>{h.days}</span><span>{h.hours}</span></div>))}
+                  <p className="hours-note">Standard Potomac Mills Mall hours</p>
+                </div>
               </div>
             </div>
-            <div className="location-cards-col">
-              <div className="location-card" data-testid="location-address-card">
-                <div className="location-card-head">
-                  <div className="location-card-icon" style={{ background: "rgba(255,85,0,0.15)" }}>
-                    <MapPin size={20} style={{ color: "var(--primary)" }} />
-                  </div>
-                  <h3>Where to find us</h3>
-                </div>
-                <p>
-                  Find us inside <strong style={{ color: "#fff" }}>Potomac Mills Mall</strong> — 2700
-                  Potomac Mills Circle, Woodbridge, VA 22192 —{" "}
-                  <span style={{ color: "var(--primary)", fontWeight: 600 }}>directly across from T.J. Maxx</span>.
-                </p>
-                <a href="https://www.google.com/maps/search/?api=1&query=2700+Potomac+Mills+Circle+Woodbridge+VA+22192"
-                   target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm"
-                   data-testid="get-directions-button">
-                  <Navigation size={16} /> Get Directions
-                </a>
-                <a href="tel:+15712924247" className="btn btn-secondary btn-sm secondary" data-testid="call-store-button">
-                  <Phone size={16} style={{ color: "var(--cyan)" }} /> Call (571) 292-4247
-                </a>
-              </div>
-              <div className="location-card" data-testid="operating-hours-card">
-                <div className="location-card-head">
-                  <div className="location-card-icon" style={{ background: "rgba(0,229,255,0.15)" }}>
-                    <Clock size={20} style={{ color: "var(--cyan)" }} />
-                  </div>
-                  <h3>Operating hours</h3>
-                </div>
-                {HOURS.map((h) => (
-                  <div key={h.days} className="hours-row">
-                    <span>{h.days}</span>
-                    <span>{h.hours}</span>
-                  </div>
-                ))}
-                <p className="hours-note">Standard Potomac Mills Mall hours</p>
+            <div className="footer-bottom">
+              <div className="footer-brand"><BrandMark size={30} /><span className="brand-name">SMART DEALS <span style={{ color: "var(--primary)" }}>MARKET</span></span></div>
+              <p className="footer-copy">© {new Date().getFullYear()} Smart Deals Market · Potomac Mills Mall · Woodbridge, VA</p>
+              <div className="footer-links">
+                <a href="tel:+15712924247"><Phone size={16} /> (571) 292-4247</a>
+                <a href="https://www.instagram.com/smartdealsmarket_" target="_blank" rel="noopener noreferrer"><Instagram size={16} /> @smartdealsmarket_</a>
               </div>
             </div>
           </div>
-          <div className="footer-bottom" data-testid="footer-bottom">
-            <div className="footer-brand">
-              <BrandMark size={30} />
-              <span className="brand-name">
-                SMART DEALS <span className="accent">MARKET</span>
-              </span>
-            </div>
-            <p className="footer-copy">
-              © {new Date().getFullYear()} Smart Deals Market · Potomac Mills Mall · Woodbridge, VA
-            </p>
-            <div className="footer-links">
-              <a href="tel:+15712924247" className="phone">
-                <Phone size={16} /> (571) 292-4247
-              </a>
-              <a href="https://www.instagram.com/smartdealsmarket_" target="_blank"
-                 rel="noopener noreferrer" className="insta">
-                <Instagram size={16} /> @smartdealsmarket_
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    );
-  }
+        </footer>
+      );
+    }
 
-  // ---------- App ----------
-  function App() {
-    useEffect(() => {
-      const onClick = (e) => {
-        const link = e.target.closest('a[href^="#"]');
-        if (!link) return;
-        const id = link.getAttribute("href");
-        if (id.length > 1) {
-          const el = document.querySelector(id);
-          if (el) {
-            e.preventDefault();
-            const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
-            window.scrollTo({ top, behavior: "smooth" });
+    function App() {
+      useEffect(() => {
+        const onClick = (e) => {
+          const link = e.target.closest('a[href^="#"]');
+          if (!link) return;
+          const id = link.getAttribute("href");
+          if (id.length > 1) {
+            const el = document.querySelector(id);
+            if (el) { e.preventDefault(); const top = el.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({ top, behavior: "smooth" }); }
           }
-        }
-      };
-      document.addEventListener("click", onClick);
-      return () => document.removeEventListener("click", onClick);
-    }, []);
+        };
+        document.addEventListener("click", onClick);
+        return () => document.removeEventListener("click", onClick);
+      }, []);
 
-    return (
-      <div style={{ minHeight: "100vh", background: "var(--background)", color: "#fff" }}>
-        <Header />
-        <main>
-          <Hero />
-          <StoreRules />
-          <Inventory />
-          <SocialFeed />
-        </main>
-        <Location />
-      </div>
-    );
-  }
+      return (
+        <div style={{ minHeight: "100vh", background: "var(--background)", color: "#fff" }}>
+          <Header /><main><Hero /><StoreRules /><Inventory /><SocialFeed /></main><Location />
+        </div>
+      );
+    }
 
-  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-</script>
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
 </body>
 </html>
